@@ -7,6 +7,10 @@ This is ESP-8266 code that reads temp and humidity readings every minute from a 
 <a href="https://www.youtube.com/embed/H_7alrjquLI" target="_blank"><img src="http://i.imgur.com/WvYhmjtl.jpeg" 
 alt="Video" height="250" border="10" /><p>Demo Video</a>
 
+
+![temp](http://i.imgur.com/yK4GflIl.png)
+![humid](http://i.imgur.com/gZP5Fbcl.png)
+
 ## Hardware
 * ESP8266 microcontroller, like a Wemos D1 Mini
 * DHT11 temp/humidity sensor
