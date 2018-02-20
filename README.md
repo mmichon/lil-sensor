@@ -4,7 +4,7 @@ Yet Another Web-Enabled Weather Sensor Publishing To MQTT
 
 This is ESP-8266 code that reads temp and humidity readings every minute from a DHT11, updates a small SSD-1306-based display, and publishes readings to MQTT topics. The hardware should cost <$15 and wiring it up should take <15 minutes.
 
-<a href="https://www.youtube.com/embed/H_7alrjquLI" target="_blank"><img src="http://i.imgur.com/WvYhmjtl.jpeg" 
+<a href="https://www.youtube.com/embed/H_7alrjquLI" target="_blank"><img src="http://i.imgur.com/WvYhmjtl.jpeg"
 alt="Video" height="250" border="10" /><p>Demo Video</a>
 
 
@@ -22,11 +22,15 @@ All this should cost <$15
 * platformio
 * The following libs:
 ```
-pio lib install 135
-pio lib install 188
-pio lib install 18
-pio lib install 89
+Adafruit DHT Unified_ID18
+DHT sensor library_ID19
+Adafruit Unified Sensor_ID31
+Adafruit GFX Library_ID13
+Adafruit SSD1306_135
+PubSubClient_ID89
 ```
+These libraries are loaded automatically by platformio upon ```lib_deps``` dependencies. No need for manual install.
+If you use atom.io yoou should open this project with the platformio IDE to get these libraries into the list of installed libraries.
 
 ## Provisioning an MQTT topic and connecting to Wifi
 1. Create an account on devicehub.net

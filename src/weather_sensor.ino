@@ -2,10 +2,10 @@
 #include <SPI.h>
 #include <Wire.h>
 #include <ESP8266WiFi.h>
-#include <Adafruit_SSD1306.h>   // pio lib install 135
-#include <Adafruit_GFX.h>       // pio lib install 13
-#include <DHT.h>                // pio lib install 18
-#include <PubSubClient.h>       // pio lib install 89
+#include <Adafruit_SSD1306.h>   // Adafruit SSD1306_135 --> local lib/
+#include <Adafruit_GFX.h>       // Adafruit GFX Library_ID13
+#include <DHT_U.h>              // Adafruit DHT Unified_ID18, DHT sensor library_ID19, Adafruit Unified Sensor_ID31
+#include <PubSubClient.h>       // PubSubClient_ID89
 #include "config.h"
 
 
