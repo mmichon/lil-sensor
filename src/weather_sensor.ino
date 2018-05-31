@@ -1,20 +1,20 @@
+#include <Adafruit_GFX.h>     // Adafruit GFX Library_ID13
+#include <Adafruit_SSD1306.h> // Adafruit SSD1306_135 --> local lib/
 #include <Arduino.h>
+#include <DHT_U.h> // Adafruit DHT Unified_ID18, DHT sensor library_ID19, Adafruit Unified Sensor_ID31
+#include <ESP8266WiFi.h>
+#include <PubSubClient.h> // PubSubClient_ID89
 #include <SPI.h>
 #include <Wire.h>
-#include <ESP8266WiFi.h>
-#include <Adafruit_SSD1306.h>   // Adafruit SSD1306_135 --> local lib/
-#include <Adafruit_GFX.h>       // Adafruit GFX Library_ID13
-#include <DHT_U.h>              // Adafruit DHT Unified_ID18, DHT sensor library_ID19, Adafruit Unified Sensor_ID31
-#include <PubSubClient.h>       // PubSubClient_ID89
+
 #include "config.h"
 
-
 // Wemos OLED shield on pin 3: https://www.wemos.cc/product/oled-shield.html
-#define DHTPIN D3
+#define DHTPIN D4
 #define DHTTYPE DHT11
 DHT dht(DHTPIN, DHTTYPE);
 
-#define OLED_RESET 0  // GPIO0
+#define OLED_RESET 0 // GPIO0
 Adafruit_SSD1306 display(OLED_RESET);
 
 // change the #define in Adafruit_SSD1306.h if you're using a different display size
@@ -25,17 +25,16 @@ Adafruit_SSD1306 display(OLED_RESET);
 WiFiClient espClient;
 PubSubClient client(espClient);
 
-
 void setup() {
     Serial.begin(9600);
 
     // by default, we'll generate the high voltage from the 3.3v line internally! (neat!)
-    display.begin(SSD1306_SWITCHCAPVCC, 0x3C);  // initialize with the I2C addr 0x3C (for the 64x48)
+    display.begin(SSD1306_SWITCHCAPVCC, 0x3C); // initialize with the I2C addr 0x3C (for the 64x48)
 
     // clear the display
     display.clearDisplay();
     display.setTextColor(WHITE);
-    display.setCursor(0,0);
+    display.setCursor(0, 0);
     display.print("Hello.");
     display.display();
 
@@ -79,7 +78,7 @@ void loop() {
     // clear display before updating
     display.clearDisplay();
     display.setTextColor(WHITE);
-    display.setCursor(0,0);
+    display.setCursor(0, 0);
 
     // output readings
     display.setTextSize(1);
@@ -106,7 +105,7 @@ void loop() {
     Serial.println(topic);
     Serial.println(payload);
 
-    if (!client.publish(topic, payload, true)){
+    if (!client.publish(topic, payload, true)) {
         Serial.println("ERROR: couldn't publish.");
     }
 
@@ -116,12 +115,12 @@ void loop() {
     Serial.println(topic);
     Serial.println(payload);
 
-    if (!client.publish(topic, payload, true)){
+    if (!client.publish(topic, payload, true)) {
         Serial.println("ERROR: couldn't publish.");
     }
 
     // wait for a minute before publishing again
-    delay(60*1000);
+    delay(60 * 1000);
 }
 
 void setup_wifi() {
@@ -145,7 +144,7 @@ void setup_wifi() {
     Serial.println(WiFi.localIP());
 }
 
-void callback(char* topic, byte* payload, unsigned int length) {
+void callback(char *topic, byte *payload, unsigned int length) {
     Serial.print("Message arrived [");
     Serial.print(topic);
     Serial.print("] ");
